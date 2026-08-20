@@ -1,0 +1,180 @@
+:root {
+  color-scheme: light;
+  font-family:
+    Inter,
+    "Segoe UI",
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    sans-serif;
+  --bg: #eef3f9;
+  --panel: rgba(18, 29, 46, 0.96);
+  --panel-2: rgba(255, 255, 255, 0.92);
+  --border: rgba(31, 54, 92, 0.14);
+  --border-strong: rgba(36, 89, 170, 0.42);
+  --text: #132033;
+  --muted: #5c6c84;
+  --active: #1d6cf0;
+  --active-soft: rgba(29, 108, 240, 0.16);
+  --shadow: 0 14px 40px rgba(11, 23, 40, 0.16);
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at top left, rgba(80, 130, 240, 0.12), transparent 28%),
+    linear-gradient(180deg, #f7fbff 0%, #edf3fa 100%);
+}
+
+body {
+  touch-action: none;
+  overscroll-behavior: none;
+  user-select: none;
+}
+
+#app {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  color: var(--text);
+}
+
+.toolbar {
+  display: flex;
+  gap: 12px;
+  align-items: stretch;
+  padding: 12px;
+  background: linear-gradient(180deg, rgba(15, 26, 43, 0.98), rgba(14, 21, 36, 0.96));
+  border-bottom: 1px solid rgba(130, 164, 218, 0.18);
+  box-shadow: 0 2px 0 rgba(255, 255, 255, 0.02) inset;
+  flex-wrap: wrap;
+}
+
+.toolbar-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px;
+  border: 1px solid rgba(138, 168, 220, 0.16);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.toolbar-group-title {
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(224, 233, 247, 0.56);
+  margin-right: 4px;
+  font-weight: 700;
+}
+
+.tool-button,
+.action-button,
+.toggle-button {
+  min-height: 48px;
+  min-width: 48px;
+  padding: 0 14px;
+  border-radius: 14px;
+  border: 1px solid rgba(148, 179, 231, 0.16);
+  background: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.92);
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  cursor: pointer;
+  transition:
+    transform 120ms ease,
+    background 120ms ease,
+    border-color 120ms ease,
+    color 120ms ease;
+}
+
+.tool-button:hover,
+.action-button:hover,
+.toggle-button:hover {
+  transform: translateY(-1px);
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.tool-button.active,
+.action-button.active,
+.toggle-button.active {
+  background: linear-gradient(180deg, rgba(72, 134, 244, 0.98), rgba(31, 102, 235, 0.98));
+  border-color: rgba(141, 189, 255, 0.64);
+  color: #fff;
+  box-shadow: 0 10px 24px rgba(22, 89, 208, 0.26);
+}
+
+.color-swatch {
+  width: 34px;
+  height: 34px;
+  border-radius: 12px;
+  border: 2px solid rgba(255, 255, 255, 0.7);
+  padding: 0;
+}
+
+.toolbar-field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  color: rgba(234, 240, 250, 0.82);
+  font-size: 12px;
+  min-width: 130px;
+}
+
+.toolbar-field input[type="range"] {
+  width: 160px;
+}
+
+.toolbar-field input[type="color"] {
+  width: 56px;
+  height: 42px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+}
+
+.toolbar-spacer {
+  flex: 1 1 auto;
+}
+
+.canvas-shell {
+  position: relative;
+  flex: 1;
+  overflow: hidden;
+  background: #ffffff;
+}
+
+.canvas-shell::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(17, 28, 46, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(17, 28, 46, 0.03) 1px, transparent 1px);
+  background-size: 44px 44px;
+  pointer-events: none;
+  opacity: 0.18;
+}
+
+.canvas-shell.dragging {
+  cursor: grabbing;
+}
+
+canvas {
+  display: block;
+}
+
+.hidden-input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+}

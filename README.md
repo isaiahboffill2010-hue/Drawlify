@@ -1,7 +1,20 @@
 # Drawlify
 
-Drawlify is a new project repository.
+Drawlify is a fullscreen Electron drawing app for a Raspberry Pi touchscreen.
 
 ## Status
 
-This repository has been initialized and is ready for development.
+The initial Electron + Vite + Fabric.js scaffold is in place.
+
+## Development
+
+```bash
+npm install
+npm run dev
+```
+
+## Build
+
+```bash
+npm run build
+```
