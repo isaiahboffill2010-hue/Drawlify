@@ -116,8 +116,7 @@ export class DrawingApp {
   private buildToolbar() {
     this.toolbar.append(
       this.group("Selection", [
-        this.toolButton("Select", "select"),
-        this.toolButton("Pan", "pan")
+        this.toolButton("Select", "select")
       ]),
       this.group("Draw", [
         this.toolButton("Pen", "pen"),
@@ -129,8 +128,7 @@ export class DrawingApp {
         this.toolButton("Rect", "rect"),
         this.toolButton("Circle", "ellipse"),
         this.toolButton("Triangle", "triangle"),
-        this.toolButton("Line", "line"),
-        this.toolButton("Arrow", "arrow")
+        this.toolButton("Line", "line")
       ]),
       this.group("Content", [
         this.toolButton("Text", "text"),
